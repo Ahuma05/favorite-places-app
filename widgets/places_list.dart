@@ -1,4 +1,3 @@
-import 'package:fav_places_app/main.dart';
 import 'package:fav_places_app/model/place.dart';
 import 'package:flutter/material.dart';
 
@@ -22,9 +21,9 @@ class PlacesList extends StatelessWidget {
       itemBuilder: (context, index) => ListTile(
         title: Text(
           places[index].title,
-          style: Theme.of(context).textTheme.titleMedium!.copyWith(
-            color: Theme.of(context).colorScheme.onSurface,
-          ),
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium!.copyWith(color: Colors.white),
         ),
       ),
     );
