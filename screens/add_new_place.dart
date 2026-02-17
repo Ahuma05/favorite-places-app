@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:fav_places_app/providers/user_places.dart';
 import 'package:fav_places_app/widgets/image_input.dart';
+import 'package:fav_places_app/widgets/location_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -24,9 +25,12 @@ class _AddNewPlaceScreenState extends ConsumerState<AddNewPlaceScreen> {
     }
 
     ref
-        .read(userPlacesProvider.notifier)
-        .addPlace(enteredTitle, _selectedImage!);
-    Navigator.of(context).pop();
+        .read(userPlacesProvider.notifier) // reaches out to notifier
+        .addPlace(
+          enteredTitle,
+          _selectedImage!,
+        ); //add the title and image to existing list
+    Navigator.of(context).pop(); //closes the screen
   }
 
   @override
@@ -52,12 +56,18 @@ class _AddNewPlaceScreenState extends ConsumerState<AddNewPlaceScreen> {
                 style: TextStyle(color: Colors.white),
               ),
               SizedBox(height: 10),
+
               ImageInput(
                 onPicked: (image) {
                   _selectedImage = image;
                 },
               ),
+              SizedBox(height: 10),
+
+              LocationInput(),
+
               const SizedBox(height: 16),
+
               ElevatedButton.icon(
                 onPressed: _savePlace,
                 icon: Icon(Icons.add),
