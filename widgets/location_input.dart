@@ -47,7 +47,7 @@ class _LocationInputState extends State<LocationInput> {
 
     print(locationData.latitude);
     print(locationData.longitude);
-  }
+  } //gets user current location..............
 
   @override
   Widget build(BuildContext context) {
